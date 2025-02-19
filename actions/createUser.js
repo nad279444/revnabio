@@ -2,7 +2,8 @@
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { rolePermissions } from '@/lib/permissions';
-import { revalidatePath } from "next/cache";
+import { revalidatePath } from 'next/cache';
+
 
 
 // Validation Schema
@@ -39,7 +40,7 @@ export async function createUser(formData) {
         permissions,
       },
     });
-    revalidatePath('/')
+    await revalidatePath('/')
     return { success: true };
   } catch (error) {
     console.error('Database Error:', error);

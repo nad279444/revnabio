@@ -115,7 +115,7 @@ export default function UsersTable() {
                     <Popover>
                       <PopoverTrigger asChild>
                         <Button variant="ghost">
-                          <MoreHorizontsl size={20} />
+                          <MoreHorizontal size={20} />
                         </Button>
                       </PopoverTrigger>
                       <PopoverContent className="w-40">
