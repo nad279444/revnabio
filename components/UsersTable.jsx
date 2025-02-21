@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useMemo } from 'react';
 import { getUsers } from '@/actions/getUsers';
 import {  deleteUser } from '@/actions/deleteUser';
 import {  updateUser } from '@/actions/updateUser';
@@ -12,11 +12,14 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
 import { MoreHorizontal } from 'lucide-react';
 
+
+
 export default function UsersTable() {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState('');
   const [editingUser, setEditingUser] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  
 
   useEffect(() => {
     async function fetchUsers() {
@@ -24,7 +27,7 @@ export default function UsersTable() {
       setUsers(data);
     }
     fetchUsers();
-  }, []);
+  }, [users]);
 
   // Filter users based on search input
   const filteredUsers = users.filter((user) =>
@@ -79,10 +82,10 @@ export default function UsersTable() {
 
   return (
     <div className="w-full max-w-4xl mx-auto pt-24 pb-10">
-      <h1 className="text-lg text-center pt-10 py-10 text-blue-700 font-bold">
+     
+     <h1 className="text-lg text-center mt-24 my-5 text-blue-700 font-bold">
         User Management
       </h1>
-
       {/* Search Input */}
       <Input
         type="text"

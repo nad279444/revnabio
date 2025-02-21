@@ -28,6 +28,7 @@ const Nav = () => {
               <CirclePlus size={20} />
             </Button>
           </Tooltip>
+          
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" />
             <AvatarFallback>CN</AvatarFallback>
